@@ -179,8 +179,14 @@ function mostrarAlertas() {
   alertaDiv.innerHTML = alertas.map(msg => `<p>${msg}</p>`).join("");
 }
 
+// Mostrar promedio
+function mostrarPromedio() {
+  document.getElementById("promedio").textContent = `Promedio acumulado: ${calcularPromedio()}`;
+}
+
 // Inicializa la página
 document.addEventListener("DOMContentLoaded", () => {
   renderMaterias();
   mostrarAlertas();
+  mostrarPromedio();
 });
