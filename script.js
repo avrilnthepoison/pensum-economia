@@ -1,4 +1,3 @@
-// Pensum estructurado por código
 const materias = {
   "3111": { nombre: "Principios de Economía I", creditos: 5, semestre: 1, prelaciones: ["3112", "3321", "3251"], descripcion: "Fundamentos básicos de la teoría económica." },
   "3411": { nombre: "Matemática I", creditos: 4, semestre: 1, prelaciones: ["3412"], descripcion: "Álgebra y funciones aplicadas a la economía." },
@@ -40,15 +39,12 @@ const materias = {
   "3502": { nombre: "Trabajo de Grado II", creditos: 3, semestre: 10, prelaciones: [], descripcion: "Finalización y defensa del trabajo de grado." }
 };
 
-// Materias vistas por el usuario
 let vistas = new Set(JSON.parse(localStorage.getItem("materiasVistas")) || []);
 
-// Guardar progreso
 function guardarProgreso() {
   localStorage.setItem("materiasVistas", JSON.stringify([...vistas]));
 }
 
-// Créditos acumulados
 function calcularCreditos() {
   let total = 0;
   vistas.forEach(codigo => {
@@ -57,14 +53,12 @@ function calcularCreditos() {
   return total;
 }
 
-// Verifica si una materia está desbloqueada
 function estaDesbloqueada(codigo) {
   const materia = materias[codigo];
   if (!materia) return false;
   return materia.prelaciones.every(pre => vistas.has(pre));
 }
 
-// Renderiza las materias en la página
 function renderMaterias() {
   const contenedor = document.getElementById("contenedor");
   contenedor.innerHTML = "";
@@ -88,15 +82,14 @@ function renderMaterias() {
     div.textContent = `${datos.nombre} (${datos.creditos} UC)`;
 
     div.onclick = () => {
-      if (vistas.has(codigo)) {
-        vistas.delete(codigo);
+      if (vista) {
+        vistas.delete(codigo); // Deselecciona
       } else {
-        vistas.add(codigo);
+        vistas.add(codigo); // Selecciona
       }
       guardarProgreso();
       renderMaterias();
       mostrarAlertas();
-      }
     };
 
     contenedor.appendChild(div);
@@ -105,21 +98,19 @@ function renderMaterias() {
   document.getElementById("creditos").textContent = `Créditos acumulados: ${calcularCreditos()}`;
 }
 
-// Muestra alertas según los créditos acumulados
 function mostrarAlertas() {
   const creditos = calcularCreditos();
   const alertas = [];
 
   if (creditos >= 85) alertas.push("✅ Puedes realizar el servicio comunitario.");
   if (creditos >= 110) alertas.push("🎓 Puedes iniciar el trabajo de grado.");
-  if (creditos >= 138) alertas.push("🏁 Has completado los créditos en materias obligatorias.");
+  if (creditos >= 138) alertas.push("🏁 Has completado los créditos obligatorios.");
   if (creditos >= 170) alertas.push("👑 Has alcanzado el total requerido para graduarte.");
 
   const alertaDiv = document.getElementById("alertas");
   alertaDiv.innerHTML = alertas.map(msg => `<p>${msg}</p>`).join("");
 }
 
-// Inicializa la página
 document.addEventListener("DOMContentLoaded", () => {
   renderMaterias();
   mostrarAlertas();
