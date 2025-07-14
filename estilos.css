@@ -61,12 +61,13 @@ h1 {
 /* Bloques base de materia */
 .materia {
   width: 180px;
-  padding: 10px 12px; /* menos espacio interno */
+  padding: 16px 20px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.6em;
   text-align: center;
   cursor: pointer;
   position: relative;
@@ -74,11 +75,8 @@ h1 {
   box-shadow: 0 2px 5px rgba(45, 50, 85, 0.1);
 }
 
-/* Contenido interno de cada materia */
 .materia strong {
-  display: block;
   font-weight: bold;
-  margin-bottom: 3px; /* menos espacio entre nombre y UC */
 }
 
 .materia span {
