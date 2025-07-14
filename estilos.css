@@ -40,8 +40,18 @@ h1 {
   transition: all 0.3s ease;
 }
 
-/* Contenedor de materias */
-#contenedor {
+/* Agrupación por semestre */
+.semestre {
+  margin-bottom: 40px;
+}
+
+.semestre h2 {
+  text-align: center;
+  color: #2D3255;
+  margin-bottom: 15px;
+}
+
+.fila-materias {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
