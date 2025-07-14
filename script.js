@@ -112,7 +112,10 @@ function renderMaterias() {
         div.classList.add("desbloqueada"); // Vista también es desbloqueada
       }
 
-      div.textContent = `${nombre} (${creditos} UC)`;
+      div.innerHTML = `
+        <strong>${nombre}</strong><br>
+        <span>${creditos} UC</span>
+      `;
 
       div.onclick = () => {
         if (vista) {
