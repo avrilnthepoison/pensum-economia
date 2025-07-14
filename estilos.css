@@ -19,9 +19,14 @@ h1 {
   color: #2D3255;
 }
 
-#creditos {
+#resumen {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
   font-weight: bold;
   font-size: 1.1em;
+  color: #2D3255;
 }
 
 /* Alertas */
