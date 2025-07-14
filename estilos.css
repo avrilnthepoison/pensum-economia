@@ -61,7 +61,7 @@ h1 {
 /* Bloques base de materia */
 .materia {
   width: 180px;
-  height: 120px;
+  height: 100px;
   padding: 0 16px;
   border-radius: 12px;
   position: relative;
@@ -80,7 +80,7 @@ h1 {
   transform: translateX(-50%);
   font-weight: bold;
   font-size: 0.95em;
-  text-align: justify;
+  text-align: center;
   width: 90%;
   overflow-wrap: break-word;
   word-break: break-word;
