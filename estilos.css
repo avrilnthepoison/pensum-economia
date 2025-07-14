@@ -107,6 +107,12 @@ h1 {
   appearance: none;
 }
 
+.nota-input::placeholder {
+  color: #2D3255;
+  opacity: 0.3;
+  font-style: italic;
+}
+
 /* Código de materia y UC*/
 .materia span {
   position: absolute;
