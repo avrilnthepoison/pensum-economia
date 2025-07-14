@@ -62,26 +62,35 @@ h1 {
 .materia {
   width: 180px;
   height: 60px;
-  padding: 0 20px;
+  padding: 0 16px;
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
   text-align: center;
   cursor: pointer;
-  position: relative;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(45, 50, 85, 0.1);
+  overflow: hidden;
 }
 
+/* Nombre de la materia alineado arriba */
 .materia strong {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
   font-weight: bold;
+  font-size: 0.95em;
+  white-space: nowrap;
 }
 
+/* UC alineadas abajo */
 .materia span {
-  font-size: 0.95em;
-  font-style: normal;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85em;
+  white-space: nowrap;
 }
 
 /* Materia bloqueada */
