@@ -70,6 +70,18 @@ h1 {
   box-shadow: 0 2px 5px rgba(45, 50, 85, 0.1);
 }
 
+/* Contenido interno de cada materia */
+.materia strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.materia span {
+  font-size: 0.95em;
+  font-style: normal;
+}
+
 /* Materia bloqueada */
 .materia.bloqueada {
   background-color: #C2C6E4;
@@ -86,6 +98,11 @@ h1 {
 .materia.vista {
   background-color: #7381BE;
   color: #2D3255;
+}
+
+/* Estilo visual para contenido de materia vista */
+.materia.vista strong,
+.materia.vista span {
   font-style: italic;
   text-decoration: line-through;
 }
