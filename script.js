@@ -88,11 +88,14 @@ function renderMaterias() {
     div.textContent = `${datos.nombre} (${datos.creditos} UC)`;
 
     div.onclick = () => {
-      if (!vista) {
+      if (vistas.has(codigo)) {
+        vistas.delete(codigo);
+      } else {
         vistas.add(codigo);
-        guardarProgreso();
-        renderMaterias();
-        mostrarAlertas();
+      }
+      guardarProgreso();
+      renderMaterias();
+      mostrarAlertas();
       }
     };
 
