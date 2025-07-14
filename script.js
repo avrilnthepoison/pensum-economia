@@ -103,8 +103,13 @@ function renderMaterias() {
         div.classList.add("bloqueada");
       }
 
+      if (desbloqueada && !vista) {
+        div.classList.add("desbloqueada");
+      }
+
       if (vista) {
         div.classList.add("vista");
+        div.classList.add("desbloqueada"); // Vista también es desbloqueada
       }
 
       div.textContent = `${nombre} (${creditos} UC)`;
