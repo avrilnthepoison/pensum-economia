@@ -113,8 +113,8 @@ function renderMaterias() {
       }
 
       div.innerHTML = `
-        <strong>${nombre}</strong><br>
-        <span>${creditos} UC</span>
+        <strong>${nombre}</strong>
+        <span>${codigo} - ${creditos} UC</span>
       `;
 
       div.onclick = () => {
