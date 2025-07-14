@@ -78,10 +78,8 @@ h1 {
 .materia strong {
   display: block;
   font-weight: bold;
-  padding-bottom: 4px;
-  margin-bottom: 6px;
-  border-bottom: 1px solid currentColor;
-  width: 100%;
+  padding-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .materia span {
