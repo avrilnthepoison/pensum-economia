@@ -61,13 +61,13 @@ h1 {
 /* Bloques base de materia */
 .materia {
   width: 180px;
-  padding: 16px 20px;
+  height: 100px;
+  padding: 0 20px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.6em;
   text-align: center;
   cursor: pointer;
   position: relative;
