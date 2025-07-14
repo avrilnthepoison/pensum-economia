@@ -40,21 +40,38 @@ const materias = {
   "3502": { nombre: "Trabajo de Grado II", creditos: 3, semestre: 10, prelaciones: ["3501"], descripcion: "Finalización y defensa del trabajo de grado" }
 };
 
-// Materias vistas
+// Vistas
 let vistas = new Set(JSON.parse(localStorage.getItem("materiasVistas")) || []);
+let notas = JSON.parse(localStorage.getItem("notasMaterias")) || {};
 
 // Guardar Progreso
 function guardarProgreso() {
   localStorage.setItem("materiasVistas", JSON.stringify([...vistas]));
 }
 
-// Créditos acumulados
+// Calcular créditos
 function calcularCreditos() {
   let total = 0;
   vistas.forEach(codigo => {
     if (materias[codigo]) total += materias[codigo].creditos;
   });
   return total;
+}
+
+// Calcular promedio
+function calcularPromedio() {
+  let totalCreditos = 0;
+  let sumaPonderada = 0;
+
+  Object.entries(notas).forEach(([codigo, nota]) => {
+    if (materias[codigo] && vistas.has(codigo)) {
+      const uc = materias[codigo].creditos;
+      totalCreditos += uc;
+      sumaPonderada += nota * uc;
+    }
+  });
+
+  return totalCreditos > 0 ? (sumaPonderada / totalCreditos).toFixed(2) : "—";
 }
 
 // Verifica si una materia está desbloqueada
@@ -112,8 +129,21 @@ function renderMaterias() {
         div.classList.add("desbloqueada"); // Vista también es desbloqueada
       }
 
-      div.innerHTML = `<strong>${nombre}</strong><span>${codigo} - ${creditos} UC</span>`;
-
+      div.innerHTML = `
+        <strong>${nombre}</strong>
+        <span>${codigo} - ${creditos} UC</span>
+        <input type="number" min="0" max="20" value="${notas[codigo] || ''}" class="nota-input" />
+      `;
+      
+      const input = div.querySelector(".nota-input");
+      input.addEventListener("change", () => {
+        const valor = parseFloat(input.value);
+        if (!isNaN(valor) && valor >= 0 && valor <= 20) {
+          notas[codigo] = valor;
+          localStorage.setItem("notasMaterias", JSON.stringify(notas));
+          mostrarPromedio();
+      });
+      
       div.onclick = () => {
         if (vista) {
           vistas.delete(codigo);
