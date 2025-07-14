@@ -56,6 +56,7 @@ function calcularCreditos() {
 function estaDesbloqueada(codigo) {
   const materia = materias[codigo];
   if (!materia) return false;
+  if (materia.prelaciones.length === 0) return true;
   return materia.prelaciones.every(pre => vistas.has(pre));
 }
 
@@ -83,9 +84,9 @@ function renderMaterias() {
 
     div.onclick = () => {
       if (vista) {
-        vistas.delete(codigo); // Deselecciona
+        vistas.delete(codigo);
       } else {
-        vistas.add(codigo); // Selecciona
+        vistas.add(codigo);
       }
       guardarProgreso();
       renderMaterias();
