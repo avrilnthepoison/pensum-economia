@@ -22,11 +22,16 @@ h1 {
 #resumen {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   margin-bottom: 20px;
+}
+
+#creditos,
+#promedio {
   font-weight: bold;
   font-size: 1.1em;
-  color: #2D3255;
+  margin: 0;
 }
 
 /* Alertas */
