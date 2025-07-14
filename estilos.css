@@ -1,0 +1,112 @@
+/* Paleta pastel y tipografía */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #E6E6F5;
+  color: #2D3255;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #2D3255;
+}
+
+#creditos {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Alertas */
+#alertas {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#alertas p {
+  background-color: #AAAFDC;
+  color: #2D3255;
+  padding: 8px;
+  margin: 5px auto;
+  border-radius: 10px;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+/* Contenedor de materias */
+#contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Bloques de materia */
+.materia {
+  width: 220px;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #AAAFDC;
+  color: #2D3255;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(45, 50, 85, 0.1);
+}
+
+/* Materia bloqueada */
+.materia.bloqueada {
+  background-color: #E6E6F5;
+  color: #2D3255;
+  opacity: 0.6;
+}
+
+/* Materia vista */
+.materia.vista {
+  text-decoration: line-through;
+}
+
+/* Hover: inversión de colores */
+.materia:hover {
+  background-color: #2D3255;
+  color: #E6E6F5;
+}
+
+/* Tooltip con descripción */
+.materia::after {
+  content: attr(data-descripcion);
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2D3255;
+  color: #E6E6F5;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.materia:hover::after {
+  opacity: 1;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #2D3255;
+}
