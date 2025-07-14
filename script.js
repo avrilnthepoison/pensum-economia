@@ -129,11 +129,7 @@ function renderMaterias() {
         div.classList.add("desbloqueada"); // Vista también es desbloqueada
       }
 
-      div.innerHTML = `
-        <strong>${nombre}</strong>
-        <span>${codigo} - ${creditos} UC</span>
-        <input type="number" min="0" max="20" value="${notas[codigo] || ''}" class="nota-input" />
-      `;
+      div.innerHTML = `<strong>${nombre}</strong><span>${codigo} - ${creditos} UC</span><input type="number" min="0" max="20" value="${notas[codigo] || ''}" class="nota-input" />`;
       
       const input = div.querySelector(".nota-input");
       if (notas[codigo] < 10) {
