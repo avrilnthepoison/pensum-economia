@@ -146,7 +146,8 @@ function renderMaterias() {
         }
       });
       
-      div.onclick = () => {
+      div.addEventListener("click", (e) => {
+        if (e.target.classList.contains("nota-input")) return;
         if (vista) {
           vistas.delete(codigo);
         } else {
@@ -155,7 +156,7 @@ function renderMaterias() {
         guardarProgreso();
         renderMaterias();
         mostrarAlertas();
-      };
+      });
 
       fila.appendChild(div);
     });
