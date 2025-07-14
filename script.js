@@ -136,12 +136,18 @@ function renderMaterias() {
       `;
       
       const input = div.querySelector(".nota-input");
+      if (notas[codigo] < 10) {
+        input.classList.add("reprobada");
+      }
+      
       input.addEventListener("change", () => {
         const valor = parseFloat(input.value);
         if (!isNaN(valor) && valor >= 0 && valor <= 20) {
           notas[codigo] = valor;
           localStorage.setItem("notasMaterias", JSON.stringify(notas));
+          input.classList.toggle("reprobada", valor < 10);
           mostrarPromedio();
+        }
       });
       
       div.onclick = () => {
@@ -165,7 +171,7 @@ function renderMaterias() {
   document.getElementById("creditos").textContent = `Créditos acumulados: ${calcularCreditos()}`;
 }
 
-// Morstrar aletrtas según los créditos acumulados
+// Mostrar alertas según los créditos acumulados
 function mostrarAlertas() {
   const creditos = calcularCreditos();
   const alertas = [];
