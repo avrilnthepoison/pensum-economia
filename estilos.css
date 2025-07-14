@@ -84,6 +84,7 @@ h1 {
   width: 90%;
   white-space: normal;
   word-break: break-word;
+  display: block;
 }
 
 /* UC alineadas abajo */
