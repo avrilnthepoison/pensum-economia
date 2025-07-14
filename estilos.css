@@ -100,7 +100,6 @@ h1 {
   color: #2D3255;
 }
 
-/* Estilo visual para contenido de materia vista */
 .materia.vista strong,
 .materia.vista span {
   font-style: italic;
