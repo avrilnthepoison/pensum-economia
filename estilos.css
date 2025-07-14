@@ -61,7 +61,7 @@ h1 {
 /* Bloques base de materia */
 .materia {
   width: 180px;
-  height: 100px;
+  height: 60px;
   padding: 0 20px;
   border-radius: 12px;
   display: flex;
