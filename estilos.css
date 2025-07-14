@@ -84,6 +84,13 @@ h1 {
   text-decoration: line-through;
 }
 
+/* Materia desbloqueada */
+.materia.desbloqueada {
+  background-color: #AAAFDC;
+  color: #2D3255;
+  opacity: 1;
+}
+
 /* Hover: inversión de colores */
 .materia:hover {
   background-color: #2D3255;
